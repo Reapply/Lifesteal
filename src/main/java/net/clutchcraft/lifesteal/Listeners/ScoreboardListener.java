@@ -23,7 +23,7 @@ public class ScoreboardListener implements Listener {
 
         player.setScoreboard(scoreboard);
 
-        Score line = objective.getScore(ChatColor.WHITE + "" + ChatColor.BOLD + "﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊");
+        Score line = objective.getScore(ChatColor.WHITE + "" + ChatColor.BOLD + "-------------------------");
         line.setScore(3);
 
         Score space = objective.getScore(" ");

@@ -1,5 +1,6 @@
 package net.clutchcraft.lifesteal;
 
+import net.clutchcraft.lifesteal.Commands.FlyCommand;
 import net.clutchcraft.lifesteal.Commands.GamemodeCommand;
 import net.clutchcraft.lifesteal.Commands.ResetHealthCommand;
 import net.clutchcraft.lifesteal.Listeners.PlayerDeathListener;
@@ -20,6 +21,7 @@ public final class main extends JavaPlugin {
     //register command to reset the players health to 20
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
     getCommand("gm").setExecutor(new GamemodeCommand());
+    getCommand("fly").setExecutor(new FlyCommand());
   }
 
   @Override

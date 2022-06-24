@@ -12,3 +12,7 @@ commands:
     usage: /gm
     description: Toggle your gamemode
     permission: lifesteal.gamemode
+  fly:
+    usage: /fly
+    description: Toggle your fly mode
+    permission: lifesteal.fly
