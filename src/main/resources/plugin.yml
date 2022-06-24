@@ -1,0 +1,14 @@
+name: Lifesteal
+version: '${project.version}'
+main: net.clutchcraft.lifesteal.main
+api-version: 1.18
+authors: [ Banker ]
+commands:
+  resethealth:
+    usage: /resethealth
+    description: Reset your max health to the default value of 20
+    permission: lifesteal.resethealth
+  gm:
+    usage: /gm
+    description: Toggle your gamemode
+    permission: lifesteal.gamemode
