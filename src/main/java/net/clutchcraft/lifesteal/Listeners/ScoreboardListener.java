@@ -19,7 +19,7 @@ public class ScoreboardListener implements Listener {
 
         Objective objective = scoreboard.registerNewObjective("lifesteal", "dummy");
         objective.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-        objective.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "❀Meadow Network❀" + ChatColor.RED + ChatColor.BOLD + " [ALPHA]");;
+        objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "❀Meadow Network❀" + ChatColor.RED + ChatColor.BOLD + " [ALPHA]");;
 
         player.setScoreboard(scoreboard);
 

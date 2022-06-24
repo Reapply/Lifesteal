@@ -16,4 +16,8 @@ commands:
     usage: /fly
     description: Toggle your fly mode
     permission: lifesteal.fly
+  report:
+    usage: /report <player>
+    description: Report a player to the server staff
+
 

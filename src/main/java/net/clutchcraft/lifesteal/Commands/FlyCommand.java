@@ -14,23 +14,23 @@ public class FlyCommand implements CommandExecutor {
                 if (args.length == 0) {
                     if (player.getAllowFlight()) {
                         player.setAllowFlight(false);
-                        player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.RED + "You are no longer flying");
+                        player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.RED + "You are no longer flying");
                     } else {
                         player.setAllowFlight(true);
-                        player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You are now flying");
+                        player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You are now flying");
                     }
                 } else {
                     org.bukkit.entity.Player target = player.getServer().getPlayer(args[0]);
                     if (target != null) {
                         if (target.getAllowFlight()) {
                             target.setAllowFlight(false);
-                            target.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + player.getDisplayName() + " has stopped you from flying");
+                            target.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + player.getDisplayName() + " has stopped you from flying");
                         } else {
                             target.setAllowFlight(true);
-                            target.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + player.getDisplayName() + " has allowed you to fly");
+                            target.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + player.getDisplayName() + " has allowed you to fly");
                         }
                     } else {
-                        player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + "Player not found");
+                        player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + "Player not found");
                     }
                 }
             } else {

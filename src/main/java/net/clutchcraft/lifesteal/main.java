@@ -3,6 +3,7 @@ package net.clutchcraft.lifesteal;
 import net.clutchcraft.lifesteal.Commands.FlyCommand;
 import net.clutchcraft.lifesteal.Commands.GamemodeCommand;
 import net.clutchcraft.lifesteal.Commands.ResetHealthCommand;
+import net.clutchcraft.lifesteal.DiscordReportSystem.CommandReport;
 import net.clutchcraft.lifesteal.Listeners.PlayerDeathListener;
 import net.clutchcraft.lifesteal.Listeners.ScoreboardListener;
 import net.clutchcraft.lifesteal.Listeners.ServerListListener;
@@ -24,7 +25,9 @@ public final class main extends JavaPlugin {
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
     getCommand("gm").setExecutor(new GamemodeCommand());
     getCommand("fly").setExecutor(new FlyCommand());
+    getCommand("report").setExecutor(new CommandReport());
   }
+
 
 
   @Override
