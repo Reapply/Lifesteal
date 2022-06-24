@@ -1,4 +1,4 @@
-![68747470733a2f2f656d6f6a692e67672f6173736574732f656d6f6a692f373333332d706172726f7464616e63652e676966](https://user-images.githubusercontent.com/44247723/175438896-9dac8cdc-8f36-47f8-916f-93e1a0b205f1.gif) Lifesteal 
+<h1 align="center">![heart](https://user-images.githubusercontent.com/44247723/175439077-23ae0e33-c332-4d67-a3a6-715500317a5f.gif) Life Steal</h1>
 
 
 This project is a highly-scalable Core plugin used to run our Servers
