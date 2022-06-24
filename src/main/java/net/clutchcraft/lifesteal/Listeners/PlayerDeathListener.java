@@ -1,6 +1,7 @@
 package net.clutchcraft.lifesteal.Listeners;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,7 +19,10 @@ public class PlayerDeathListener implements Listener {
     if (player.getHealth() <= 0) {
       player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.RED + "You died! " + event.getEntity().getKiller().getDisplayName() + " killed you!");
       player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2.0); // Has to be 2.0 because 1.0 only removes half a heart
-      player.getWorld().strikeLightning(player.getLocation());
+
+
+
+
       // if a player is stuck by lightning, do not damage them
 
       //If the players max health is below 0 set the player into spectator mode
@@ -41,6 +45,8 @@ public class PlayerDeathListener implements Listener {
       Player killer = player.getKiller();
       killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() + 2.0);
       killer.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You killed " + player.getDisplayName() + " and gained 1 heart!");
+      // Give the killer the players head with the players name that they killed
+        killer.getInventory().addItem(new org.bukkit.inventory.ItemStack(Material.PLAYER_HEAD, 1, (short) player.getUniqueId().toString().hashCode()));
       killer.setHealth(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
     }
     // if the player dies by fall damage remove 1 heart
