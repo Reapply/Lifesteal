@@ -19,11 +19,17 @@ public class ScoreboardListener implements Listener {
 
         Objective objective = scoreboard.registerNewObjective("lifesteal", "dummy");
         objective.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-        objective.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "❀Meadow Network❀ ");
+        objective.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "❀Meadow Network❀" + ChatColor.RED + ChatColor.BOLD + " [ALPHA]");;
 
         player.setScoreboard(scoreboard);
 
-        Score playername  = objective.getScore(player.getName());
+        Score line = objective.getScore(ChatColor.WHITE + "" + ChatColor.BOLD + "﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊");
+        line.setScore(3);
+
+        Score space = objective.getScore(" ");
+        space.setScore(2);
+
+        Score playername  = objective.getScore("          " + player.getName());
         playername.setScore(1);
     }
 }
