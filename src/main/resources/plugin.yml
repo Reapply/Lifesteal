@@ -16,3 +16,6 @@ commands:
     usage: /fly
     description: Toggle your fly mode
     permission: lifesteal.fly
+  rank:
+    usage: /rank
+    description: Edit ranks
