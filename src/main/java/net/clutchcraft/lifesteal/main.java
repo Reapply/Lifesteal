@@ -6,7 +6,6 @@ import net.clutchcraft.lifesteal.Commands.ResetHealthCommand;
 import net.clutchcraft.lifesteal.CustomHeartItems.CustomHeartAdders;
 import net.clutchcraft.lifesteal.CustomHeartItems.HeartItemGiver;
 import net.clutchcraft.lifesteal.DiscordReportSystem.CommandReport;
-import net.clutchcraft.lifesteal.Listeners.FoundDiamondsListener;
 import net.clutchcraft.lifesteal.Listeners.JumpscareListener;
 import net.clutchcraft.lifesteal.Listeners.PlayerDeathListener;
 import net.clutchcraft.lifesteal.Listeners.ServerListListener;
@@ -30,7 +29,6 @@ public final class main extends JavaPlugin {
     // Register Player Death Event
     getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
     getServer().getPluginManager().registerEvents(new ServerListListener(), this);
-    getServer().getPluginManager().registerEvents(new FoundDiamondsListener(), this);
     getServer().getPluginManager().registerEvents(new CustomHeartAdders(), this);
     getServer().getPluginManager().registerEvents(new JumpscareListener(), this);
 

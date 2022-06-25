@@ -17,11 +17,15 @@ public class JumpscareListener implements Listener {
         if (event.getBlock().getType() == Material.STONE) {
             // 10% chance
             //if (Math.random() < 0.1) {
+            // 0.0001% chance
+            /*if (Math.random() < 0.00001) {
+                event.getBlock().getWorld().spawnEntity(event.getBlock().getLocation(), EntityType.SKELETON);
+            }*/
 
 
 
 
-            if (Math.random() < 0.1) {
+            if (Math.random() < 0.00001) {
                 // spawn a skeleton on the player
                 event.getPlayer().getWorld().spawnEntity(event.getPlayer().getLocation(), EntityType.SKELETON);
 
@@ -30,7 +34,6 @@ public class JumpscareListener implements Listener {
                 for (int i = 2; i < 360; i++) {
                     event.getBlock().getWorld().spawnParticle(Particle.DRIP_LAVA, event.getBlock().getLocation().add(Math.cos(i) * 1, 2, Math.sin(i) * 1), 1);
                 }
-                // Play a sound at the location of the stone
 
             }
         }
