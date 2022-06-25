@@ -19,5 +19,15 @@ commands:
   report:
     usage: /report <player>
     description: Report a player to the server staff
-
-
+  rtp:
+    usage: /rtp <player>
+    description: Randomly teleport to a random possible location
+    permission: lifesteal.rtp
+  customheartgiver:
+    usage: /customheartgiver
+    description: Give you a heart item
+    permission: lifesteal.heartitemgiver
+  maintenancemode:
+    usage: /maintenancemode
+    description: Toggle maintenance mode
+    permission: lifesteal.maintenancemode
