@@ -31,3 +31,7 @@ commands:
     usage: /maintenancemode
     description: Toggle maintenance mode
     permission: lifesteal.maintenancemode
+  crategive:
+    usage: /givecrate
+    description: Give you a crate
+    permission: lifesteal.crategive
