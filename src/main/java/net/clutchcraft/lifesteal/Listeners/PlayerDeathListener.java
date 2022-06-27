@@ -6,6 +6,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
@@ -17,8 +18,15 @@ public class PlayerDeathListener implements Listener {
     // get if the player respawns
     // if the players health is -0 or less, then they died
     if (player.getHealth() <= 0) {
-      player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.RED + "You died! " + event.getEntity().getKiller().getDisplayName() + " killed you!");
-      player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2.0); // Has to be 2.0 because 1.0 only removes half a heart
+      // If the player dies by null then return however if they die by a killer then remove 1 heart
+        if (event.getEntity().getKiller() == null) {
+            return;
+        } else {
+          player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.RED + "You died! " + event.getEntity().getKiller().getDisplayName() + " killed you!");
+          player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2.0); // Has to be 2.0 because 1.0 only removes half a heart
+        }
+
+
 
 
 
@@ -48,6 +56,10 @@ public class PlayerDeathListener implements Listener {
       // Give the killer the players head with the players name that they killed
         killer.getInventory().addItem(new org.bukkit.inventory.ItemStack(Material.PLAYER_HEAD, 1, (short) player.getUniqueId().toString().hashCode()));
       killer.setHealth(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
+      // If the killer is null then the player will still lose a heart
+        if (killer == null) {
+            player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2.0);
+        }
     }
     // if the player dies by fall damage remove 1 heart
     if (player.getLastDamageCause().getCause() == org.bukkit.event.entity.EntityDamageEvent.DamageCause.FALL) {

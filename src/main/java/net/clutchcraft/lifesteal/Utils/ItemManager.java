@@ -29,7 +29,7 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.POPPY, 1);
         ItemMeta meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GRAY + "[Common]" + ChatColor.RESET + "Heart Replenisher");
+        meta.setDisplayName(ChatColor.GRAY + "[Common] " + ChatColor.RESET + "Heart Replenisher");
         List<String> lore = new ArrayList<>();
         lore.add("");
         lore.add(ChatColor.GOLD + "Item Ability:");
