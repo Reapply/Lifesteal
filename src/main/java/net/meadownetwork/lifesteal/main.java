@@ -1,21 +1,21 @@
-package net.clutchcraft.lifesteal;
+package net.meadownetwork.lifesteal;
 
-import net.clutchcraft.lifesteal.Commands.FlyCommand;
-import net.clutchcraft.lifesteal.Commands.GamemodeCommand;
-import net.clutchcraft.lifesteal.Commands.ResetHealthCommand;
-import net.clutchcraft.lifesteal.Crates.CrateGiveCommand;
-import net.clutchcraft.lifesteal.Crates.CrateGiverListener;
-import net.clutchcraft.lifesteal.CustomHeartItems.CustomHeartAdders;
-import net.clutchcraft.lifesteal.CustomHeartItems.HeartItemGiver;
-import net.clutchcraft.lifesteal.DiscordReportSystem.CommandReport;
-import net.clutchcraft.lifesteal.Listeners.JumpscareListener;
-import net.clutchcraft.lifesteal.Listeners.PlayerDeathListener;
-import net.clutchcraft.lifesteal.Listeners.ServerListListener;
-import net.clutchcraft.lifesteal.MaintenanceMode.MaintenanceModeCommand;
-import net.clutchcraft.lifesteal.MaintenanceMode.MaintenanceModeTab;
-import net.clutchcraft.lifesteal.RTP.CommandRtp;
-import net.clutchcraft.lifesteal.RTP.TeleportUtils;
-import net.clutchcraft.lifesteal.Utils.ItemManager;
+import net.meadownetwork.lifesteal.Commands.FlyCommand;
+import net.meadownetwork.lifesteal.Commands.GamemodeCommand;
+import net.meadownetwork.lifesteal.Commands.ResetHealthCommand;
+import net.meadownetwork.lifesteal.Crates.CrateGiveCommand;
+import net.meadownetwork.lifesteal.Crates.CrateGiverListener;
+import net.meadownetwork.lifesteal.CustomHeartItems.CustomHeartAdders;
+import net.meadownetwork.lifesteal.CustomHeartItems.HeartItemGiver;
+import net.meadownetwork.lifesteal.DiscordReportSystem.CommandReport;
+import net.meadownetwork.lifesteal.Listeners.JumpscareListener;
+import net.meadownetwork.lifesteal.Listeners.PlayerDeathListener;
+import net.meadownetwork.lifesteal.Listeners.ServerListListener;
+import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeCommand;
+import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeTab;
+import net.meadownetwork.lifesteal.RTP.CommandRtp;
+import net.meadownetwork.lifesteal.RTP.TeleportUtils;
+import net.meadownetwork.lifesteal.Utils.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class main extends JavaPlugin {

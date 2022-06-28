@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.Commands;
+package net.meadownetwork.lifesteal.Commands;
 
 import org.bukkit.command.CommandExecutor;
 

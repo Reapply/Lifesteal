@@ -1,6 +1,6 @@
 name: Lifesteal
 version: '${project.version}'
-main: net.clutchcraft.lifesteal.main
+main: net.meadownetwork.lifesteal.main
 api-version: 1.18
 authors: [ Banker ]
 commands:

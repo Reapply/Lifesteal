@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.MaintenanceMode;
+package net.meadownetwork.lifesteal.MaintenanceMode;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

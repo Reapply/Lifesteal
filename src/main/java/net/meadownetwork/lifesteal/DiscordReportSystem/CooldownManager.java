@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.DiscordReportSystem;
+package net.meadownetwork.lifesteal.DiscordReportSystem;
 
 import java.util.HashMap;
 import java.util.Map;

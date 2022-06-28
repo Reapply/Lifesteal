@@ -1,6 +1,6 @@
-package net.clutchcraft.lifesteal.Crates;
+package net.meadownetwork.lifesteal.Crates;
 
-import net.clutchcraft.lifesteal.Utils.ItemManager;
+import net.meadownetwork.lifesteal.Utils.ItemManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 

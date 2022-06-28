@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.Utils;
+package net.meadownetwork.lifesteal.Utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -48,10 +48,15 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.CHEST, 1);
         ItemMeta meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName("mine key");
+        meta.setDisplayName(ChatColor.GRAY + "[Common] " + ChatColor.RESET + "Crate");
         List<String> lore = new ArrayList<>();
-        lore.add("mine crate key");
-        lore.add("Open at /warp crates");
+        lore.add("");
+        lore.add(ChatColor.RED + "❤" + ChatColor.WHITE + "Open to receive one of these items:");
+        lore.add(ChatColor.RED + "");
+        lore.add(" - " + ChatColor.GRAY + "[Common] " + ChatColor.WHITE + "Heart Replenisher");
+        lore.add(" - " + ChatColor.WHITE + "20" + ChatColor.AQUA  +" Diamonds ");
+        meta.addEnchant(Enchantment.ARROW_FIRE, 1, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.setLore(lore);
         item.setItemMeta(meta);
         commoncrate = item;

@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.DiscordReportSystem;
+package net.meadownetwork.lifesteal.DiscordReportSystem;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class DiscordWebhook {
     private String username;
     private String avatarUrl;
     private boolean tts;
-    private List<net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject> embeds = new ArrayList<>();
+    private List<DiscordWebhook.EmbedObject> embeds = new ArrayList<>();
 
     /**
      * Constructs a new DiscordWebhook instance
@@ -44,7 +44,7 @@ public class DiscordWebhook {
         this.tts = tts;
     }
 
-    public void addEmbed(net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject embed) {
+    public void addEmbed(DiscordWebhook.EmbedObject embed) {
         this.embeds.add(embed);
     }
 
@@ -53,7 +53,7 @@ public class DiscordWebhook {
             throw new IllegalArgumentException("Set content or add at least one EmbedObject");
         }
 
-        net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject json = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+        DiscordWebhook.JSONObject json = new DiscordWebhook.JSONObject();
 
         json.put("content", this.content);
         json.put("username", this.username);
@@ -61,10 +61,10 @@ public class DiscordWebhook {
         json.put("tts", this.tts);
 
         if (!this.embeds.isEmpty()) {
-            List<net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject> embedObjects = new ArrayList<>();
+            List<DiscordWebhook.JSONObject> embedObjects = new ArrayList<>();
 
-            for (net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject embed : this.embeds) {
-                net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject jsonEmbed = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+            for (DiscordWebhook.EmbedObject embed : this.embeds) {
+                DiscordWebhook.JSONObject jsonEmbed = new DiscordWebhook.JSONObject();
 
                 jsonEmbed.put("title", embed.getTitle());
                 jsonEmbed.put("description", embed.getDescription());
@@ -86,14 +86,14 @@ public class DiscordWebhook {
                     jsonEmbed.put("color", rgb);
                 }
 
-                net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Footer footer = embed.getFooter();
-                net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Image image = embed.getImage();
-                net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Thumbnail thumbnail = embed.getThumbnail();
-                net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Author author = embed.getAuthor();
-                List<net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Field> fields = embed.getFields();
+                DiscordWebhook.EmbedObject.Footer footer = embed.getFooter();
+                DiscordWebhook.EmbedObject.Image image = embed.getImage();
+                DiscordWebhook.EmbedObject.Thumbnail thumbnail = embed.getThumbnail();
+                DiscordWebhook.EmbedObject.Author author = embed.getAuthor();
+                List<DiscordWebhook.EmbedObject.Field> fields = embed.getFields();
 
                 if (footer != null) {
-                    net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject jsonFooter = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+                    DiscordWebhook.JSONObject jsonFooter = new DiscordWebhook.JSONObject();
 
                     jsonFooter.put("text", footer.getText());
                     jsonFooter.put("icon_url", footer.getIconUrl());
@@ -101,21 +101,21 @@ public class DiscordWebhook {
                 }
 
                 if (image != null) {
-                    net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject jsonImage = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+                    DiscordWebhook.JSONObject jsonImage = new DiscordWebhook.JSONObject();
 
                     jsonImage.put("url", image.getUrl());
                     jsonEmbed.put("image", jsonImage);
                 }
 
                 if (thumbnail != null) {
-                    net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject jsonThumbnail = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+                    DiscordWebhook.JSONObject jsonThumbnail = new DiscordWebhook.JSONObject();
 
                     jsonThumbnail.put("url", thumbnail.getUrl());
                     jsonEmbed.put("thumbnail", jsonThumbnail);
                 }
 
                 if (author != null) {
-                    net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject jsonAuthor = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+                    DiscordWebhook.JSONObject jsonAuthor = new DiscordWebhook.JSONObject();
 
                     jsonAuthor.put("name", author.getName());
                     jsonAuthor.put("url", author.getUrl());
@@ -123,9 +123,9 @@ public class DiscordWebhook {
                     jsonEmbed.put("author", jsonAuthor);
                 }
 
-                List<net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject> jsonFields = new ArrayList<>();
-                for (net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Field field : fields) {
-                    net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject jsonField = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject();
+                List<DiscordWebhook.JSONObject> jsonFields = new ArrayList<>();
+                for (DiscordWebhook.EmbedObject.Field field : fields) {
+                    DiscordWebhook.JSONObject jsonField = new DiscordWebhook.JSONObject();
 
                     jsonField.put("name", field.getName());
                     jsonField.put("value", field.getValue());
@@ -163,11 +163,11 @@ public class DiscordWebhook {
         private String url;
         private Color color;
 
-        private net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Footer footer;
-        private net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Thumbnail thumbnail;
-        private net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Image image;
-        private net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Author author;
-        private List<net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Field> fields = new ArrayList<>();
+        private DiscordWebhook.EmbedObject.Footer footer;
+        private DiscordWebhook.EmbedObject.Thumbnail thumbnail;
+        private DiscordWebhook.EmbedObject.Image image;
+        private DiscordWebhook.EmbedObject.Author author;
+        private List<DiscordWebhook.EmbedObject.Field> fields = new ArrayList<>();
 
         public String getTitle() {
             return title;
@@ -185,68 +185,68 @@ public class DiscordWebhook {
             return color;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Footer getFooter() {
+        public DiscordWebhook.EmbedObject.Footer getFooter() {
             return footer;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Thumbnail getThumbnail() {
+        public DiscordWebhook.EmbedObject.Thumbnail getThumbnail() {
             return thumbnail;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Image getImage() {
+        public DiscordWebhook.EmbedObject.Image getImage() {
             return image;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Author getAuthor() {
+        public DiscordWebhook.EmbedObject.Author getAuthor() {
             return author;
         }
 
-        public List<net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Field> getFields() {
+        public List<DiscordWebhook.EmbedObject.Field> getFields() {
             return fields;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setTitle(String title) {
+        public DiscordWebhook.EmbedObject setTitle(String title) {
             this.title = title;
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setDescription(String description) {
+        public DiscordWebhook.EmbedObject setDescription(String description) {
             this.description = description;
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setUrl(String url) {
+        public DiscordWebhook.EmbedObject setUrl(String url) {
             this.url = url;
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setColor(Color color) {
+        public DiscordWebhook.EmbedObject setColor(Color color) {
             this.color = color;
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setFooter(String text, String icon) {
-            this.footer = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Footer(text, icon);
+        public DiscordWebhook.EmbedObject setFooter(String text, String icon) {
+            this.footer = new DiscordWebhook.EmbedObject.Footer(text, icon);
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setThumbnail(String url) {
-            this.thumbnail = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Thumbnail(url);
+        public DiscordWebhook.EmbedObject setThumbnail(String url) {
+            this.thumbnail = new DiscordWebhook.EmbedObject.Thumbnail(url);
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setImage(String url) {
-            this.image = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Image(url);
+        public DiscordWebhook.EmbedObject setImage(String url) {
+            this.image = new DiscordWebhook.EmbedObject.Image(url);
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject setAuthor(String name, String url, String icon) {
-            this.author = new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Author(name, url, icon);
+        public DiscordWebhook.EmbedObject setAuthor(String name, String url, String icon) {
+            this.author = new DiscordWebhook.EmbedObject.Author(name, url, icon);
             return this;
         }
 
-        public net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject addField(String name, String value, boolean inline) {
-            this.fields.add(new net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.EmbedObject.Field(name, value, inline));
+        public DiscordWebhook.EmbedObject addField(String name, String value, boolean inline) {
+            this.fields.add(new DiscordWebhook.EmbedObject.Field(name, value, inline));
             return this;
         }
 
@@ -368,7 +368,7 @@ public class DiscordWebhook {
                     builder.append(Integer.valueOf(String.valueOf(val)));
                 } else if (val instanceof Boolean) {
                     builder.append(val);
-                } else if (val instanceof net.clutchcraft.lifesteal.DiscordReportSystem.DiscordWebhook.JSONObject) {
+                } else if (val instanceof DiscordWebhook.JSONObject) {
                     builder.append(val.toString());
                 } else if (val.getClass().isArray()) {
                     builder.append("[");

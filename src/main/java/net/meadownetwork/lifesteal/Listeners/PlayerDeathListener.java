@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.Listeners;
+package net.meadownetwork.lifesteal.Listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -26,18 +26,14 @@ public class PlayerDeathListener implements Listener {
           player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2.0); // Has to be 2.0 because 1.0 only removes half a heart
         }
 
-
-
-
-
-
       // if a player is stuck by lightning, do not damage them
 
       //If the players max health is below 0 set the player into spectator mode
       double value =
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 1 - player.getHealth();
       if (value < 0) {
-          player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+
+
       }
 
 

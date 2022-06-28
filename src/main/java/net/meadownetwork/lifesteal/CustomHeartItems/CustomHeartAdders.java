@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.CustomHeartItems;
+package net.meadownetwork.lifesteal.CustomHeartItems;
 
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;

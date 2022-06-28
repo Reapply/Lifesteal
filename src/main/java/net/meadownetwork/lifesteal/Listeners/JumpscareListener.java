@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.Listeners;
+package net.meadownetwork.lifesteal.Listeners;
 
 import org.bukkit.Material;
 import org.bukkit.Particle;

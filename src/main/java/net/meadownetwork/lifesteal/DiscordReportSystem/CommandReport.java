@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.DiscordReportSystem;
+package net.meadownetwork.lifesteal.DiscordReportSystem;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

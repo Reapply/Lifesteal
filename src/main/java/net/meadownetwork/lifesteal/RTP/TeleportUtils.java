@@ -1,6 +1,6 @@
-package net.clutchcraft.lifesteal.RTP;
+package net.meadownetwork.lifesteal.RTP;
 
-import net.clutchcraft.lifesteal.main;
+import net.meadownetwork.lifesteal.main;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

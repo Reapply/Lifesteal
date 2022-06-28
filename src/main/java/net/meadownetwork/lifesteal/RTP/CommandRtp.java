@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.RTP;
+package net.meadownetwork.lifesteal.RTP;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

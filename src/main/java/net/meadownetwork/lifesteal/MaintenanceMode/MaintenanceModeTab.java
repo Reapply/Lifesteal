@@ -1,4 +1,4 @@
-package net.clutchcraft.lifesteal.MaintenanceMode;
+package net.meadownetwork.lifesteal.MaintenanceMode;
 
 import com.google.common.base.Strings;
 import org.bukkit.Bukkit;
