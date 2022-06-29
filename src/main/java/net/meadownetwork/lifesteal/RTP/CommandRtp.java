@@ -28,7 +28,7 @@ public class CommandRtp implements CommandExecutor {
                 player.sendMessage(ChatColor.AQUA + "New Coordinates: " + ChatColor.LIGHT_PURPLE + randomLocation.getX() + " " + randomLocation.getY() + " " + randomLocation.getZ());
 
             }else if(args.length == 1){ //Specify a player to teleport
-                if (player.hasPermission("rtp.others")){
+                if (player.hasPermission("lifesteal.admin")){
                     //Get the player to teleport
                     Player target = Bukkit.getPlayer(args[0]);
 

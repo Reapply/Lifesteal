@@ -1,8 +1,13 @@
 package net.meadownetwork.lifesteal;
 
+import net.meadownetwork.lifesteal.AdminCommands.PlayerInfoCommand;
+import net.meadownetwork.lifesteal.AdminCommands.SetSpawnCommand;
+import net.meadownetwork.lifesteal.AdminCommands.SetSpawnListener;
 import net.meadownetwork.lifesteal.Commands.FlyCommand;
-import net.meadownetwork.lifesteal.Commands.GamemodeCommand;
-import net.meadownetwork.lifesteal.Commands.ResetHealthCommand;
+import net.meadownetwork.lifesteal.Commands.SpawnCommand;
+import net.meadownetwork.lifesteal.Listeners.PlayerJoinListener;
+import net.meadownetwork.lifesteal.StaffCommands.GamemodeCommand;
+import net.meadownetwork.lifesteal.AdminCommands.ResetHealthCommand;
 import net.meadownetwork.lifesteal.Crates.CrateGiveCommand;
 import net.meadownetwork.lifesteal.Crates.CrateGiverListener;
 import net.meadownetwork.lifesteal.CustomHeartItems.CustomHeartAdders;
@@ -15,6 +20,7 @@ import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeCommand;
 import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeTab;
 import net.meadownetwork.lifesteal.RTP.CommandRtp;
 import net.meadownetwork.lifesteal.RTP.TeleportUtils;
+import net.meadownetwork.lifesteal.StaffCommands.VanishCommand;
 import net.meadownetwork.lifesteal.Utils.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -35,6 +41,9 @@ public final class main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new CustomHeartAdders(), this);
     getServer().getPluginManager().registerEvents(new JumpscareListener(), this);
     getServer().getPluginManager().registerEvents(new CrateGiverListener(), this);
+    getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+    getServer().getPluginManager().registerEvents(new SetSpawnListener(), this);
+
 
     //register command to reset the players health to 20
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
@@ -46,6 +55,10 @@ public final class main extends JavaPlugin {
     getCommand("maintenancemode").setExecutor(new MaintenanceModeCommand());
     getCommand("maintenanceMode").setTabCompleter(new MaintenanceModeTab());
     getCommand("crategive").setExecutor(new CrateGiveCommand());
+    getCommand("vanish").setExecutor(new VanishCommand());
+    getCommand("setspawn").setExecutor(new SetSpawnCommand());
+    getCommand("spawn").setExecutor(new SpawnCommand());
+    getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
 
 
 

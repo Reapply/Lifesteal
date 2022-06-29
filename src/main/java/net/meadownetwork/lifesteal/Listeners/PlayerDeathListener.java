@@ -60,6 +60,8 @@ public class PlayerDeathListener implements Listener {
     // if the player dies by fall damage remove 1 heart
     if (player.getLastDamageCause().getCause() == org.bukkit.event.entity.EntityDamageEvent.DamageCause.FALL) {
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2.0);
+      player.teleport(player.getServer().getWorlds().get(0).getSpawnLocation());
+
     }
   }
 }

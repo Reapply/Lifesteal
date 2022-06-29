@@ -7,31 +7,38 @@ commands:
   resethealth:
     usage: /resethealth
     description: Reset your max health to the default value of 20
-    permission: lifesteal.resethealth
   gm:
-    usage: /gm
+    usage: /<command>
     description: Toggle your gamemode
-    permission: lifesteal.gamemode
   fly:
-    usage: /fly
+    usage: /<command>
     description: Toggle your fly mode
-    permission: lifesteal.fly
   report:
     usage: /report <player>
     description: Report a player to the server staff
   rtp:
     usage: /rtp <player>
     description: Randomly teleport to a random possible location
-    permission: lifesteal.rtp
   customheartgiver:
-    usage: /customheartgiver
+    usage: /<command>
     description: Give you a heart item
-    permission: lifesteal.heartitemgiver
   maintenancemode:
-    usage: /maintenancemode
+    usage: /<command> <enable/disable>
     description: Toggle maintenance mode
-    permission: lifesteal.maintenancemode
   crategive:
-    usage: /givecrate
+    usage: /<command>
     description: Give you a crate
-    permission: lifesteal.crategive
+  vanish:
+    usage: /<command>
+    aliases:
+      - v
+    description: Toggle your vanish mode
+  setspawn:
+    usage: /setspawn
+    description: sets the servers spawn point
+  spawn:
+    usage: /spawn
+    description: Teleport you to spawn
+  playerinfo:
+    usage: /playerinfo <player>
+    description: Get information about a player (ADMIN ONLY)

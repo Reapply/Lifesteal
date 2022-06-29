@@ -1,4 +1,4 @@
-package net.meadownetwork.lifesteal.Commands;
+package net.meadownetwork.lifesteal.AdminCommands;
 
 import org.bukkit.command.CommandExecutor;
 
@@ -14,7 +14,7 @@ public class ResetHealthCommand implements CommandExecutor {
       //Check if the user has permission to use the command
 
 
-      if (player.hasPermission("lifesteal.resethealth")) {
+      if (player.hasPermission("lifesteal.admin")) {
         if (args.length == 0) {
           player.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0);
           player.sendMessage("Your health has been reset to 20");

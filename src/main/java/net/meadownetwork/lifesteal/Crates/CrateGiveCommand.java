@@ -10,7 +10,7 @@ public class CrateGiveCommand implements CommandExecutor {
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         // When the player dose /customheartgiver give them the item stack CommonHeart
         if (cmd.getName().equalsIgnoreCase("crategive")) {
-            if (sender.hasPermission("lifesteal.crategive")) {
+            if (sender.hasPermission("lifesteal.admin")) {
                 sender.sendMessage(ChatColor.GRAY + "" + "You have been given a Common Crate!");
                 // add the common heart to the player's inventory
                 ((org.bukkit.entity.Player) sender).getInventory().addItem(ItemManager.commoncrate);

@@ -1,4 +1,4 @@
-package net.meadownetwork.lifesteal.Commands;
+package net.meadownetwork.lifesteal.StaffCommands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
@@ -13,7 +13,7 @@ public class GamemodeCommand implements CommandExecutor {
             //Check if the user has permission to use the command
 
 
-            if (player.hasPermission("lifesteal.gamemode")) {
+            if (player.hasPermission("lifesteal.admin")) {
                 // If the player types /gm <gamemode> then set the gamemode to the specified gamemode
                 if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("0")) {
