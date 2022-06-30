@@ -16,11 +16,13 @@ public class ItemManager {
 
     public static ItemStack commonheart;
     public static ItemStack commoncrate;
+    public static  ItemStack rarecrate;
 
 
     public static void init() {
         createCommonHeart();
         createcrate();
+        createcrarecrate();
 
 
     }
@@ -51,10 +53,11 @@ public class ItemManager {
         meta.setDisplayName(ChatColor.GRAY + "[Common] " + ChatColor.RESET + "Crate");
         List<String> lore = new ArrayList<>();
         lore.add("");
-        lore.add(ChatColor.RED + "❤" + ChatColor.WHITE + "Open to receive one of these items:");
+        lore.add(ChatColor.GRAY + "[Common] ❤" + ChatColor.WHITE + "Open to receive one of these items:");
         lore.add(ChatColor.RED + "");
         lore.add(" - " + ChatColor.GRAY + "[Common] " + ChatColor.WHITE + "Heart Replenisher");
-        lore.add(" - " + ChatColor.WHITE + "20" + ChatColor.AQUA  +" Diamonds ");
+        lore.add(" - " + ChatColor.WHITE + "20" + ChatColor.AQUA + " Diamonds ");
+        lore.add(" - " + ChatColor.WHITE + "1" + ChatColor.BLUE + " [Rare] Crate");
         meta.addEnchant(Enchantment.ARROW_FIRE, 1, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.setLore(lore);
@@ -62,5 +65,23 @@ public class ItemManager {
         commoncrate = item;
 
 
+    }
+
+    private static void createcrarecrate() {
+        ItemStack item = new ItemStack(Material.CHEST, 1);
+        ItemMeta meta = item.getItemMeta();
+        assert meta != null;
+        meta.setDisplayName(ChatColor.BLUE + "[Rare] " + ChatColor.RESET + "Crate");
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add(ChatColor.BLUE + "[Rare] ❤" + ChatColor.WHITE + "Open to receive one of these items:");
+        lore.add(ChatColor.RED + "");
+        lore.add(" - " + ChatColor.GRAY + "[Common] " + ChatColor.WHITE + "Heart Replenisher");
+        lore.add(" - " + ChatColor.WHITE + "20" + ChatColor.AQUA + " Diamonds ");
+        meta.addEnchant(Enchantment.ARROW_FIRE, 1, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        rarecrate = item;
     }
 }

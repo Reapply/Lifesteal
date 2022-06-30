@@ -42,3 +42,6 @@ commands:
   playerinfo:
     usage: /playerinfo <player>
     description: Get information about a player (ADMIN ONLY)
+  discord:
+    usage: /discord
+    description: sends the player a discord link

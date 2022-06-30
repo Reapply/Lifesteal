@@ -11,14 +11,14 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class CrateGiverListener implements Listener {
+public class CommonCrateListener implements Listener {
 
     @EventHandler
     public void OnPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null
-                    && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(ChatColor.RED + "❤" + ChatColor.WHITE + "Open to receive one of these items:")) {
+                    && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(ChatColor.RED + "[Common] ❤" + ChatColor.WHITE + "Open to receive one of these items:")) {
                 event.setCancelled(true);
                 player.playSound(player.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_CHIME, 20.0f, 1.0f);
                 if (Math.random() < 0.5) {

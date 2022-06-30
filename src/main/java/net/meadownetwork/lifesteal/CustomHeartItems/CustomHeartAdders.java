@@ -30,8 +30,13 @@ public class CustomHeartAdders implements Listener {
                     Location loc = player.getLocation();
                     loc.add(Math.cos(i) * 1.5, 0, Math.sin(i) * 1.5);
                     player.getWorld().spawnParticle(Particle.HEART, loc, 1);
-
                 }
+                if (player.getInventory().getItemInMainHand().getAmount() > 1) {
+                    player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
+                } else {
+                    player.getInventory().remove(player.getInventory().getItemInMainHand());
+                }
+
             }
         }
     }

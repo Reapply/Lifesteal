@@ -10,7 +10,7 @@ public class HeartItemGiver implements CommandExecutor {
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         // When the player dose /customheartgiver give them the item stack CommonHeart
         if (cmd.getName().equalsIgnoreCase("customheartgiver")) {
-            if (sender.hasPermission("lifesteal.heartitemgiver.customheartgiver")) {
+            if (sender.hasPermission("lifesteal.admin")) {
                 sender.sendMessage(ChatColor.BLUE + "" + "You have been given a Common Heart!");
                 // add the common heart to the player's inventory
                 ((org.bukkit.entity.Player) sender).getInventory().addItem(ItemManager.commonheart);

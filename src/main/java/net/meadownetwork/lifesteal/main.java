@@ -3,19 +3,18 @@ package net.meadownetwork.lifesteal;
 import net.meadownetwork.lifesteal.AdminCommands.PlayerInfoCommand;
 import net.meadownetwork.lifesteal.AdminCommands.SetSpawnCommand;
 import net.meadownetwork.lifesteal.AdminCommands.SetSpawnListener;
+import net.meadownetwork.lifesteal.Commands.DiscordCommand;
 import net.meadownetwork.lifesteal.Commands.FlyCommand;
 import net.meadownetwork.lifesteal.Commands.SpawnCommand;
-import net.meadownetwork.lifesteal.Listeners.PlayerJoinListener;
+import net.meadownetwork.lifesteal.Crates.RareCrateListener;
+import net.meadownetwork.lifesteal.Listeners.*;
 import net.meadownetwork.lifesteal.StaffCommands.GamemodeCommand;
 import net.meadownetwork.lifesteal.AdminCommands.ResetHealthCommand;
 import net.meadownetwork.lifesteal.Crates.CrateGiveCommand;
-import net.meadownetwork.lifesteal.Crates.CrateGiverListener;
+import net.meadownetwork.lifesteal.Crates.CommonCrateListener;
 import net.meadownetwork.lifesteal.CustomHeartItems.CustomHeartAdders;
 import net.meadownetwork.lifesteal.CustomHeartItems.HeartItemGiver;
 import net.meadownetwork.lifesteal.DiscordReportSystem.CommandReport;
-import net.meadownetwork.lifesteal.Listeners.JumpscareListener;
-import net.meadownetwork.lifesteal.Listeners.PlayerDeathListener;
-import net.meadownetwork.lifesteal.Listeners.ServerListListener;
 import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeCommand;
 import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeTab;
 import net.meadownetwork.lifesteal.RTP.CommandRtp;
@@ -40,9 +39,11 @@ public final class main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new ServerListListener(), this);
     getServer().getPluginManager().registerEvents(new CustomHeartAdders(), this);
     getServer().getPluginManager().registerEvents(new JumpscareListener(), this);
-    getServer().getPluginManager().registerEvents(new CrateGiverListener(), this);
+    getServer().getPluginManager().registerEvents(new CommonCrateListener(), this);
     getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
     getServer().getPluginManager().registerEvents(new SetSpawnListener(), this);
+    getServer().getPluginManager().registerEvents(new SpawnArmorStandListener(), this);
+    getServer().getPluginManager().registerEvents(new RareCrateListener(), this);
 
 
     //register command to reset the players health to 20
@@ -59,6 +60,7 @@ public final class main extends JavaPlugin {
     getCommand("setspawn").setExecutor(new SetSpawnCommand());
     getCommand("spawn").setExecutor(new SpawnCommand());
     getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
+    getCommand("discord").setExecutor(new DiscordCommand());
 
 
 
