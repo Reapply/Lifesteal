@@ -11,7 +11,13 @@ public class clearlagcommand implements CommandExecutor {
         // When the player dose /clearlag clear all the entities
         if (cmd.getName().equalsIgnoreCase("clearlag")) {
             if (sender.hasPermission("lifesteal.clearlag")) {
-                sender.sendMessage("Clearing all entities!");
+                sender.sendMessage("Clearing all entities please wait...");
+                // Wait 5 seconds
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 // Brodcast to the server a admin has cleared the lag
                 org.bukkit.Bukkit.broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Meadow] " + ChatColor.RESET + ChatColor.WHITE + sender.getName() + " has cleared the lag!");
                 // Display how many entities were cleared

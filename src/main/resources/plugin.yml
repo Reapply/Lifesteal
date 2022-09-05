@@ -48,3 +48,9 @@ commands:
   clearlag:
     usage: /clearlag
     description: Clears all entities from the world
+  night:
+    usage: /night
+    description: Sets the time to night
+  day:
+    usage: /day
+    description: Sets the time to day

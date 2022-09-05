@@ -1,8 +1,6 @@
 package net.meadownetwork.lifesteal;
 
-import net.meadownetwork.lifesteal.AdminCommands.PlayerInfoCommand;
-import net.meadownetwork.lifesteal.AdminCommands.SetSpawnCommand;
-import net.meadownetwork.lifesteal.AdminCommands.SetSpawnListener;
+import net.meadownetwork.lifesteal.AdminCommands.*;
 import net.meadownetwork.lifesteal.ClearLag.clearlagcommand;
 import net.meadownetwork.lifesteal.Commands.DiscordCommand;
 import net.meadownetwork.lifesteal.Commands.FlyCommand;
@@ -10,7 +8,6 @@ import net.meadownetwork.lifesteal.Commands.SpawnCommand;
 import net.meadownetwork.lifesteal.Crates.RareCrateListener;
 import net.meadownetwork.lifesteal.Listeners.*;
 import net.meadownetwork.lifesteal.StaffCommands.GamemodeCommand;
-import net.meadownetwork.lifesteal.AdminCommands.ResetHealthCommand;
 import net.meadownetwork.lifesteal.Crates.CrateGiveCommand;
 import net.meadownetwork.lifesteal.Crates.CommonCrateListener;
 import net.meadownetwork.lifesteal.CustomHeartItems.CustomHeartAdders;
@@ -21,6 +18,7 @@ import net.meadownetwork.lifesteal.MaintenanceMode.MaintenanceModeTab;
 import net.meadownetwork.lifesteal.RTP.CommandRtp;
 import net.meadownetwork.lifesteal.RTP.TeleportUtils;
 import net.meadownetwork.lifesteal.StaffCommands.VanishCommand;
+import net.meadownetwork.lifesteal.Utils.CombatLogger;
 import net.meadownetwork.lifesteal.Utils.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,6 +42,7 @@ public final class main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new SetSpawnListener(), this);
     getServer().getPluginManager().registerEvents(new SpawnArmorStandListener(), this);
     getServer().getPluginManager().registerEvents(new RareCrateListener(), this);
+    getServer().getPluginManager().registerEvents(new CombatLogger(), this);
 
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
     getCommand("gm").setExecutor(new GamemodeCommand());
@@ -60,6 +59,8 @@ public final class main extends JavaPlugin {
     getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
     getCommand("discord").setExecutor(new DiscordCommand());
     getCommand("clearlag").setExecutor(new clearlagcommand());
+    getCommand("day").setExecutor(new DayCommand());
+    getCommand("night").setExecutor(new NightCommand());
 
     getConfig().options().copyDefaults();
     saveDefaultConfig();
