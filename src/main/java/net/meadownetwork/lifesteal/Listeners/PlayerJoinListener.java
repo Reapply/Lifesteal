@@ -21,10 +21,12 @@ public class PlayerJoinListener implements Listener {
         player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "---------------------------------------------");
         // If the player has never joined before announce them to the server
         if (player.hasPlayedBefore()) {
-            player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Welcome back " + player.getDisplayName());
+            player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Welcome back " + ChatColor.RESET + ChatColor.BOLD + player.getDisplayName());
         } else {
             Bukkit.broadcastMessage("" + ChatColor.GOLD + "" + ChatColor.BOLD + player.getDisplayName() + " has joined the server for the first time!");
         }
+        // Disable the default bukkit join message
+        event.setJoinMessage(null);
 
     }
 

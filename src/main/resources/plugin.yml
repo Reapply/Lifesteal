@@ -45,3 +45,6 @@ commands:
   discord:
     usage: /discord
     description: sends the player a discord link
+  clearlag:
+    usage: /clearlag
+    description: Clears all entities from the world

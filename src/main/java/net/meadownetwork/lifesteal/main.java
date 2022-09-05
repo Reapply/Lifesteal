@@ -3,6 +3,7 @@ package net.meadownetwork.lifesteal;
 import net.meadownetwork.lifesteal.AdminCommands.PlayerInfoCommand;
 import net.meadownetwork.lifesteal.AdminCommands.SetSpawnCommand;
 import net.meadownetwork.lifesteal.AdminCommands.SetSpawnListener;
+import net.meadownetwork.lifesteal.ClearLag.clearlagcommand;
 import net.meadownetwork.lifesteal.Commands.DiscordCommand;
 import net.meadownetwork.lifesteal.Commands.FlyCommand;
 import net.meadownetwork.lifesteal.Commands.SpawnCommand;
@@ -34,7 +35,6 @@ public final class main extends JavaPlugin {
     TeleportUtils yeet = new TeleportUtils(this);
     ItemManager.init();
 
-    // Register Player Death Event
     getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
     getServer().getPluginManager().registerEvents(new ServerListListener(), this);
     getServer().getPluginManager().registerEvents(new CustomHeartAdders(), this);
@@ -45,8 +45,6 @@ public final class main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new SpawnArmorStandListener(), this);
     getServer().getPluginManager().registerEvents(new RareCrateListener(), this);
 
-
-    //register command to reset the players health to 20
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
     getCommand("gm").setExecutor(new GamemodeCommand());
     getCommand("fly").setExecutor(new FlyCommand());
@@ -61,9 +59,7 @@ public final class main extends JavaPlugin {
     getCommand("spawn").setExecutor(new SpawnCommand());
     getCommand("playerinfo").setExecutor(new PlayerInfoCommand());
     getCommand("discord").setExecutor(new DiscordCommand());
-
-
-
+    getCommand("clearlag").setExecutor(new clearlagcommand());
 
     getConfig().options().copyDefaults();
     saveDefaultConfig();

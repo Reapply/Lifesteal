@@ -22,6 +22,7 @@ public class VanishCommand implements CommandExecutor {
                     } else {
                         player.setInvisible(true);
                         player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You are now in vanish");
+                        // Remove the player from the tab list
                     }
                 } else {
                     org.bukkit.entity.Player target = player.getServer().getPlayer(args[0]);

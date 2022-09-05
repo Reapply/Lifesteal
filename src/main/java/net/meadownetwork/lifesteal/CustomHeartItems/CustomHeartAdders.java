@@ -37,6 +37,7 @@ public class CustomHeartAdders implements Listener {
                     player.getInventory().remove(player.getInventory().getItemInMainHand());
                 }
 
+
             }
         }
     }
