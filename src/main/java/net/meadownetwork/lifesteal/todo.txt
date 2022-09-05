@@ -1,0 +1,10 @@
+Rework Crates
+add GMC, GMS and GMSP Commands
+Work on the clear lag command some more
+Add /whisper command
+Add /msg command
+Add /r command
+start development on the economy system
+Make it so mobs will stack to reduce lag
+Monthly Crates
+Add /sethome command & all sub command

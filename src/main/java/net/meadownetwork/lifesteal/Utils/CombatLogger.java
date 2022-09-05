@@ -19,8 +19,8 @@ public class CombatLogger implements Listener {
                 // Get the player that damaged the player
                 Player damager = (Player) event.getDamager();
                 // message both players that they are in combat
-                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Meadow] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat!");
-                damager.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Meadow] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat!");
+                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat!");
+                damager.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat!");
                 // For the next 10 seconds if either player leaves the server Kill them
                 // Check if the player or damager has left the server
                 Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
