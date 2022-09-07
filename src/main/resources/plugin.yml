@@ -54,3 +54,17 @@ commands:
   day:
     usage: /day
     description: Sets the time to day
+  msg:
+    usage: /msg <player> <message>
+    aliases:
+      - w
+    description: Send a private message to a player
+  mutechat:
+    usage: /mutechat
+    description: Mute the chat (ADMIN ONLY)
+  sethealth:
+    usage: /sethealth <player> <health>
+    description: Set a players health (ADMIN ONLY)
+  clearchat:
+    usage: /clearchat
+    description: Clear the chat

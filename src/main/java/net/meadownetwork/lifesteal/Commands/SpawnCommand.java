@@ -10,12 +10,9 @@ public class SpawnCommand implements CommandExecutor {
         // If the player is fighting a player they will not be teleported to the spawn point
 
         if (sender instanceof org.bukkit.entity.Player) {
-
-
             org.bukkit.entity.Player player = (org.bukkit.entity.Player) sender;
             player.teleport(player.getWorld().getSpawnLocation());
             player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You have been teleported to spawn!");
-
         } else {
             sender.sendMessage("You must be a player to use this command");
         }

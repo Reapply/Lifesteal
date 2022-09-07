@@ -48,9 +48,8 @@ public class PlayerDeathListener implements Listener {
         killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() + 2.0);
         killer.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You killed " + player.getDisplayName() + " and gained 1 heart!");
         // Give the killer the players head with the players name that they killed
-        // if the player dies by fall damage remove 1 heart
 
-        killer.getInventory().addItem(new org.bukkit.inventory.ItemStack(Material.PLAYER_HEAD, 1, (short) player.getUniqueId().toString().hashCode()));
+
         // Set the heads name to the target players name));
         killer.setHealth(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
         // If the player dies by any means remove 1 heart

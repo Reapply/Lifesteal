@@ -2,9 +2,7 @@ package net.meadownetwork.lifesteal;
 
 import net.meadownetwork.lifesteal.AdminCommands.*;
 import net.meadownetwork.lifesteal.ClearLag.clearlagcommand;
-import net.meadownetwork.lifesteal.Commands.DiscordCommand;
-import net.meadownetwork.lifesteal.Commands.FlyCommand;
-import net.meadownetwork.lifesteal.Commands.SpawnCommand;
+import net.meadownetwork.lifesteal.Commands.*;
 import net.meadownetwork.lifesteal.Crates.RareCrateListener;
 import net.meadownetwork.lifesteal.Listeners.*;
 import net.meadownetwork.lifesteal.StaffCommands.GamemodeCommand;
@@ -43,6 +41,7 @@ public final class main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new SpawnArmorStandListener(), this);
     getServer().getPluginManager().registerEvents(new RareCrateListener(), this);
     getServer().getPluginManager().registerEvents(new CombatLogger(), this);
+    getServer().getPluginManager().registerEvents(new MuteChatCommand(), this);
 
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
     getCommand("gm").setExecutor(new GamemodeCommand());
@@ -61,6 +60,10 @@ public final class main extends JavaPlugin {
     getCommand("clearlag").setExecutor(new clearlagcommand());
     getCommand("day").setExecutor(new DayCommand());
     getCommand("night").setExecutor(new NightCommand());
+    getCommand("msg").setExecutor(new MsgCommand());
+    getCommand("mutechat").setExecutor(new MuteChatCommand());
+    getCommand("sethealth").setExecutor(new SetHealthCommand());
+    getCommand("clearchat").setExecutor(new ClearChatCommand());
 
     getConfig().options().copyDefaults();
     saveDefaultConfig();

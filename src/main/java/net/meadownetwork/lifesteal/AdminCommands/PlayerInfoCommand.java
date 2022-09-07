@@ -21,7 +21,6 @@ public class PlayerInfoCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "---------------------------------------------");
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "! " + ChatColor.RESET + ChatColor.GREEN + "Name: " + target.getDisplayName());
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "! " + ChatColor.RESET + ChatColor.GREEN + "UUID: " + target.getUniqueId());
-                        player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "! " + ChatColor.RESET + ChatColor.GREEN + "Group: " + target.getDisplayName());
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "! " + ChatColor.RESET + ChatColor.GREEN + "Health: " + target.getHealth());
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "! " + ChatColor.RESET + ChatColor.GREEN + "Food: " + target.getFoodLevel());
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "! " + ChatColor.RESET + ChatColor.GREEN + "Gamemode: " + target.getGameMode());
