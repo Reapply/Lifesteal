@@ -68,3 +68,8 @@ commands:
   clearchat:
     usage: /clearchat
     description: Clear the chat
+  plugins:
+    usage: /plugins
+    description: yes
+    aliases:
+      - pl

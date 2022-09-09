@@ -64,6 +64,7 @@ public final class main extends JavaPlugin {
     getCommand("mutechat").setExecutor(new MuteChatCommand());
     getCommand("sethealth").setExecutor(new SetHealthCommand());
     getCommand("clearchat").setExecutor(new ClearChatCommand());
+    getCommand("plugins").setExecutor(new PluginCommand());
 
     getConfig().options().copyDefaults();
     saveDefaultConfig();
