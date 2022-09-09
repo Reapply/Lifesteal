@@ -9,7 +9,7 @@ public class SetHealthCommand implements CommandExecutor {
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         // When the player dose /sethealth (Player) (Health) set the health attribute of the player
         if (cmd.getName().equalsIgnoreCase("sethealth")) {
-            if (sender.hasPermission("lifesteal.sethealth")) {
+            if (sender.hasPermission("lifesteal.admin")) {
                 if (args.length == 2) {
                     org.bukkit.entity.Player target = org.bukkit.Bukkit.getPlayer(args[0]);
                     if (target != null) {

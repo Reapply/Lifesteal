@@ -13,7 +13,7 @@ public class MuteChatCommand implements CommandExecutor, Listener {
     // If a admin dose /mutechat it will mute the chat for all players except for admins with the permission node meadow.chatmutebyass
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("mutechat")) {
-            if (sender.hasPermission("meadow.chatmute")) {
+            if (sender.hasPermission("lifesteal.admin")) {
                 if (muted == false) {
                     muted = true;
                     sender.sendMessage(ChatColor.RED + "Chat has been muted!");

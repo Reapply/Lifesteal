@@ -14,13 +14,15 @@ public class VanishCommand implements CommandExecutor {
             // Gamemode dose not matter
             // Make the player invisible using player.setinvisible
             // If the player executes the command again they will be visible again
-            if (player.hasPermission("lifesteal.staff")) {
+            if (player.hasPermission("lifesteal.helper")) {
                 if (args.length == 0) {
                     if (player.isInvisible()) {
                         player.setInvisible(false);
+                        player.setAllowFlight(false);
                         player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.RED + "You are no longer in vanish");
                     } else {
                         player.setInvisible(true);
+                        player.setAllowFlight(true);
                         player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + ChatColor.RESET + ChatColor.GREEN + "You are now in vanish");
                         // Remove the player from the tab list
                     }
@@ -29,9 +31,11 @@ public class VanishCommand implements CommandExecutor {
                     if (target != null) {
                         if (target.isInvisible()) {
                             target.setInvisible(false);
+                            player.setAllowFlight(false);
                             target.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + player.getDisplayName() + " has made you visible");
                         } else {
                             target.setInvisible(true);
+                            player.setAllowFlight(true);
                             target.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +  "[Meadow] " + player.getDisplayName() + " has made you invisible");
                         }
                     } else {

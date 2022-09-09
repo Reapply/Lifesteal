@@ -8,7 +8,7 @@ public class SetSpawnCommand implements CommandExecutor {
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         if (sender instanceof org.bukkit.entity.Player) {
 
-            if (sender.hasPermission("lifesteal.admin")) {
+            if (sender.hasPermission("lifesteal.owner")) {
                 // When a player executes this command set the server spawn point to the player's location
                 org.bukkit.entity.Player player = (org.bukkit.entity.Player) sender;
                 player.getWorld().setSpawnLocation(player.getLocation());

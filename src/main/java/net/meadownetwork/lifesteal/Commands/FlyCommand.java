@@ -10,7 +10,7 @@ public class FlyCommand implements CommandExecutor {
         // make fly toggleable
         if (sender instanceof org.bukkit.entity.Player) {
             org.bukkit.entity.Player player = (org.bukkit.entity.Player) sender;
-            if (player.hasPermission("lifesteal.fly")) {
+            if (player.hasPermission("lifesteal.mod")) {
                 if (args.length == 0) {
                     if (player.getAllowFlight()) {
                         player.setAllowFlight(false);

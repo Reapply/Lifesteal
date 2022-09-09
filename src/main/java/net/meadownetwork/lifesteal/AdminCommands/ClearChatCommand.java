@@ -8,7 +8,7 @@ public class ClearChatCommand implements CommandExecutor {
     @Override
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("clearchat")) {
-            if (sender.hasPermission("lifesteal.clearchat")) {
+            if (sender.hasPermission("lifesteal.admin")) {
                 for (int i = 0; i < 100; i++) {
                     //Brodcast a blank message to clear the chat
                     org.bukkit.Bukkit.broadcastMessage("");

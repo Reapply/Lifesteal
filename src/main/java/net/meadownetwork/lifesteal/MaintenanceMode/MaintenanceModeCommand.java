@@ -14,7 +14,7 @@ public class MaintenanceModeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("maintenancemode")) {
-            if (sender.hasPermission("lifesteal.maintenancemode")) {
+            if (sender.hasPermission("lifesteal.admin")) {
                 if (args.length == 0) {
                     sender.sendMessage(ChatColor.RED + "Usage: /maintenancemode <enable/disable>");
                 } else if (args[0].equalsIgnoreCase("enable")) {

@@ -10,7 +10,7 @@ public class clearlagcommand implements CommandExecutor {
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
         // When the player dose /clearlag clear all the entities
         if (cmd.getName().equalsIgnoreCase("clearlag")) {
-            if (sender.hasPermission("lifesteal.clearlag")) {
+            if (sender.hasPermission("lifesteal.owner")) {
                 sender.sendMessage("Clearing all entities please wait...");
                 // Wait 5 seconds
                 try {
