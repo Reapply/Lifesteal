@@ -14,7 +14,7 @@ public class PlayerJoinListener implements Listener {
         player.sendMessage("");
         player.sendMessage("                      " + ChatColor.GOLD + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "Meadow" + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.BOLD + "Network");
         player.sendMessage("");
-        player.sendMessage("           " + ChatColor.YELLOW + "" + ChatColor.BOLD + "STORE: " + ChatColor.WHITE + "store.meadownetwork.net");
+        player.sendMessage("           " + ChatColor.YELLOW + "" + ChatColor.BOLD + "STORE: " + ChatColor.WHITE + "store.meadownetwork.org");
         player.sendMessage("            " + ChatColor.WHITE + "" + ChatColor.BOLD + "DISCORD: " + ChatColor.WHITE + "discord.gg/MeadowNetwork");
         player.sendMessage("           " + ChatColor.GOLD + "" + ChatColor.BOLD + "TWITTER: " + ChatColor.WHITE + "twitter.com/MeadowNetwork");
         player.sendMessage("");

@@ -4,6 +4,8 @@ import net.meadownetwork.lifesteal.AdminCommands.*;
 import net.meadownetwork.lifesteal.ClearLag.clearlagcommand;
 import net.meadownetwork.lifesteal.Commands.*;
 import net.meadownetwork.lifesteal.Crates.RareCrateListener;
+import net.meadownetwork.lifesteal.Guis.HelpGUI;
+import net.meadownetwork.lifesteal.Guis.HelpGuiListener;
 import net.meadownetwork.lifesteal.Listeners.*;
 import net.meadownetwork.lifesteal.StaffCommands.GamemodeCommand;
 import net.meadownetwork.lifesteal.Crates.CrateGiveCommand;
@@ -18,6 +20,8 @@ import net.meadownetwork.lifesteal.RTP.TeleportUtils;
 import net.meadownetwork.lifesteal.StaffCommands.VanishCommand;
 import net.meadownetwork.lifesteal.Utils.CombatLogger;
 import net.meadownetwork.lifesteal.Utils.ItemManager;
+import org.bukkit.ChatColor;
+import org.bukkit.command.defaults.HelpCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class main extends JavaPlugin {
@@ -25,6 +29,8 @@ public final class main extends JavaPlugin {
 
   @Override
   public void onEnable() {
+    // using a scheduler brodcast a message to the server every 2 seconds
+
     // Plugin startup logic
     getLogger().info("Lifesteal enabled!");
 
@@ -42,6 +48,7 @@ public final class main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new RareCrateListener(), this);
     getServer().getPluginManager().registerEvents(new CombatLogger(), this);
     getServer().getPluginManager().registerEvents(new MuteChatCommand(), this);
+    getServer().getPluginManager().registerEvents(new HelpGuiListener(), this);
 
     getCommand("resethealth").setExecutor(new ResetHealthCommand());
     getCommand("gm").setExecutor(new GamemodeCommand());
@@ -65,6 +72,26 @@ public final class main extends JavaPlugin {
     getCommand("sethealth").setExecutor(new SetHealthCommand());
     getCommand("clearchat").setExecutor(new ClearChatCommand());
     getCommand("plugins").setExecutor(new PluginCommand());
+    getCommand("help").setExecutor(new HelpGUI());
+
+
+
+    // This is where schedulers are stored
+    // Every 5 minutes the server will run the scheduler saying to check out our discord
+    getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+      @Override
+      public void run() {
+        getServer().broadcastMessage(ChatColor.GOLD + "❁ " + ChatColor.WHITE + ""+ ChatColor.BOLD + "STORE");
+        getServer().broadcastMessage("");
+        getServer().broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + " ⌊ " + ChatColor.WHITE + "Support us by purchasing ranks & crates at our store!");
+        getServer().broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "  ⌊ " + ChatColor.WHITE + "Perks include: Reclaims, Chat Colors, Kits, and many more!");
+        getServer().broadcastMessage("");
+        getServer().broadcastMessage(ChatColor.BOLD + ""+ ChatColor.GOLD + " ✔" + "" + ChatColor.RESET +"" +ChatColor.BOLD +" /store" + ChatColor.RESET + "" + ChatColor.WHITE + " → " + ChatColor.GOLD + "store.meadownetwork.org");
+
+      }
+      }, 0L, 6000L);
+
+
 
     getConfig().options().copyDefaults();
     saveDefaultConfig();

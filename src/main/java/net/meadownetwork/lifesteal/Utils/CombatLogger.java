@@ -19,8 +19,8 @@ public class CombatLogger implements Listener {
                 // Get the player that damaged the player
                 Player damager = (Player) event.getDamager();
                 // message both players that they are in combat
-                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat!");
-                damager.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat!");
+                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat do not log out!");
+                damager.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat do not log out!");
                 // For the next 10 seconds if either player leaves the server Kill them
                 // Check if the player or damager has left the server
                 Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
@@ -28,11 +28,29 @@ public class CombatLogger implements Listener {
                     public void run() {
                         // If the player has left the server kill them
                         if (!player.isOnline()) {
-                            player.setHealth(0);
+                            // When the player next joins the server kill them
+                            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
+                                @Override
+                                public void run() {
+                                    // If the player has joined the server kill them
+                                    if (player.isOnline()) {
+                                        player.setHealth(0);
+                                    }
+                                }
+                            }, 1);
                         }
                         // If the damager has left the server kill them
                         if (!damager.isOnline()) {
-                            damager.setHealth(0);
+                            // Kill the damager when they next join the server
+                            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
+                                @Override
+                                public void run() {
+                                    // If the damager has joined the server kill them
+                                    if (damager.isOnline()) {
+                                        damager.setHealth(0);
+                                    }
+                                }
+                            }, 1);
                         }
                     }
                 }, 200);

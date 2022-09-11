@@ -73,3 +73,8 @@ commands:
     description: yes
     aliases:
       - pl
+  help:
+    usage: /help
+    description: yes
+    aliases:
+      - ?
