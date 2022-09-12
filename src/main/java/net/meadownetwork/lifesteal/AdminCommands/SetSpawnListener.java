@@ -11,10 +11,12 @@ public class SetSpawnListener implements Listener {
     public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent event) {
         // Get the player that joined the server
         Player player = event.getPlayer();
-        // Get the spawn point set by the admin that used /setspawn
-        player.teleport(player.getWorld().getSpawnLocation());
-        // Only allow players to spawn in that location
-
+        // if the player has never joined before, teleport them to the spawn point but if they have joined before, don't teleport them
+        if (player.hasPlayedBefore()) {
+            return;
+        } else {
+            player.teleport(player.getWorld().getSpawnLocation());
+        }
     }
 // If the player dies teleport them to the spawn point set by the admin that used /setspawn
 

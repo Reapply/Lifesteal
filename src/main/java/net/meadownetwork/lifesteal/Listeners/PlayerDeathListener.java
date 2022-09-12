@@ -36,11 +36,21 @@ public class PlayerDeathListener implements Listener {
     if (killer != null) {
       Bukkit.broadcastMessage(org.bukkit.ChatColor.RED + "" + org.bukkit.ChatColor.BOLD + "[\uD83D\uDDE1] " + org.bukkit.ChatColor.RED + player.getDisplayName() + " was killed by " + killer.getDisplayName() + "! They now have " + player.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).getBaseValue() / 2 + " hearts!");
     } else {
-      Bukkit.broadcastMessage(org.bukkit.ChatColor.RED + "" + org.bukkit.ChatColor.BOLD + "[\uD83D\uDDE1] " + org.bukkit.ChatColor.RED + player.getDisplayName() + " died! They now have " + player.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).getBaseValue() / 2 + " hearts!");
+      Bukkit.broadcastMessage(org.bukkit.ChatColor.RED + "" + org.bukkit.ChatColor.BOLD + "[\uD83D\uDDE1] " + org.bukkit.ChatColor.RED + player.getDisplayName() +"" + ChatColor.RED+ " died! They now have " + player.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).getBaseValue() / 2 + " hearts!");
     }
-    // When the player has a atribue of 0 hearts send this commannd to the console "/tempban [player] 2h"
-    if (player.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).getBaseValue() == 0) {
-      Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tempban " + player.getName() + " 2h");
+    // if the player has 5 hearts dont remove any more hearts
+    if (player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() <= 10) {
+      player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(10);
+    }
+    // If they have more then 20 hearts dont add any more hearts
+    if (killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() >= 40) {
+      killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(40);
+    }
+    if (killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() <= 10) {
+      killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(10);
+    }
+    if (player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() <= 40) {
+      player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(40);
     }
   }
 }

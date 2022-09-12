@@ -34,8 +34,10 @@ public class ItemManager {
         meta.setDisplayName(ChatColor.GRAY + "[Common] " + ChatColor.RESET + "Heart Replenisher");
         List<String> lore = new ArrayList<>();
         lore.add("");
-        lore.add(ChatColor.GOLD + "Item Ability:");
-        lore.add(ChatColor.WHITE + "You will replenish 1" + ChatColor.RED + "❤");
+        lore.add(ChatColor.GOLD + "Ability:");
+        lore.add(ChatColor.GOLD + " | " +  ChatColor.WHITE + "You will replenish 1" + ChatColor.RED + "❤");
+        lore.add("");
+        lore.add(ChatColor.GRAY + "((" + ChatColor.WHITE + "Right Click " + ChatColor.GRAY + "this item to use it" + ChatColor.GRAY + "))");
         meta.setLore(lore);
         // add the enchantment to the item
         meta.addEnchant(Enchantment.ARROW_FIRE, 1, true);

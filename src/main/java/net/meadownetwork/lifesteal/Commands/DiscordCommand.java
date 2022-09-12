@@ -19,7 +19,7 @@ public class DiscordCommand implements CommandExecutor {
                 "⣿⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢸⣿⣿⣿\n" +
                 "⣿⣿⣿⣧⡀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢡⣀⠄⠄⢸⣿⣿⣿\n" +
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣆⣸⣿⣿⣿\n");
-        sender.sendMessage(ChatColor.AQUA + "discord.gg/F8qfqDGrDf!");
+        sender.sendMessage(ChatColor.AQUA + "discord.gg/Cdnzm6GGs5");
         sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "---------------------------------------------");
         return true;
     }

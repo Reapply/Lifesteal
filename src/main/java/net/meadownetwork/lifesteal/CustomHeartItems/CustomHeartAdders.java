@@ -17,7 +17,7 @@ public class CustomHeartAdders implements Listener {
         Player player = event.getPlayer();
         if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null
-                    && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(ChatColor.GOLD + "Item Ability:")) {
+                    && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(ChatColor.GOLD + "Ability:")) {
                 // Give the player a heart
                 player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() + 2.0);
                 // Play a villager sound
@@ -25,7 +25,17 @@ public class CustomHeartAdders implements Listener {
                 player.getInventory().remove(player.getInventory().getItemInMainHand());
                 // Dont allow the player to place the poppy
                 event.setCancelled(true);
+                // if they have more then 20 heart attributes dont add any more hearts
+                if (player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() > 40.0) {
+                    player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(40.0);
+                    player.sendMessage(ChatColor.RED + "You have reached the max amount of hearts!");
+                    // Dont use the poppy
+                    event.setCancelled(true);
+
+                }
                 // Spawn a circle of particles
+                // if they have more then 20 heart attributes dont add any more hearts
+
                 for (double i = 0; i < 360; i += 1) {
                     Location loc = player.getLocation();
                     loc.add(Math.cos(i) * 1.5, 0, Math.sin(i) * 1.5);
