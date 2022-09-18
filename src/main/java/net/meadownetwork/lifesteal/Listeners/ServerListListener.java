@@ -15,12 +15,12 @@ public class ServerListListener implements Listener {
        // event.setMotd(ChatColor.YELLOW + "" + ChatColor.BOLD + "  ❀Meadow Network❀   " + ChatColor.RED + ChatColor.BOLD + "\n  →Alpha←");
         if (Bukkit.hasWhitelist()) {
             // Set the MOTD to maintenance mode enabled
-            event.setMotd(ChatColor.YELLOW + "" + ChatColor.BOLD + "  ❀Meadow Network❀   " + ChatColor.RED + ChatColor.BOLD + "\n  →Alpha←" + ChatColor.RED + ChatColor.BOLD + "  →Maintenance Mode Enabled←");
+            event.setMotd(ChatColor.YELLOW + "" + ChatColor.BOLD + "  ❀Meadow Network❀   " + ChatColor.RED + ChatColor.BOLD + "\n  →LifeSteal!←" + ChatColor.RED + ChatColor.BOLD + "  →Maintenance Mode Enabled←");
             event.setMaxPlayers(event.getNumPlayers() + 1);
 
         } else {
             // Set the MOTD to maintenance mode disabled
-            event.setMotd(ChatColor.YELLOW + "" + ChatColor.BOLD + "  ❀Meadow Network❀   " + ChatColor.RED + ChatColor.BOLD + "\n  →Alpha←" );
+            event.setMotd(ChatColor.YELLOW + "" + ChatColor.BOLD + "  ❀Meadow Network❀   " + ChatColor.RED + ChatColor.BOLD + "\n  →LifeSteal←" );
             event.setMaxPlayers(event.getNumPlayers() + 1);
 
 

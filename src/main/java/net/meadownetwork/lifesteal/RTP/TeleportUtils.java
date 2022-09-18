@@ -77,4 +77,11 @@ public class TeleportUtils {
         return !(bad_blocks.contains(below.getType())) || (block.getType().isSolid()) || (above.getType().isSolid());
     }
 
+    // Only teleport the player to the world "LifeSteal" if they are in the world "world"
+    public static void teleportPlayer(Player player) {
+        if (player.getWorld().getName().equalsIgnoreCase("world")) {
+            player.teleport(findSafeLocation(player));
+        }
+    }
+
 }

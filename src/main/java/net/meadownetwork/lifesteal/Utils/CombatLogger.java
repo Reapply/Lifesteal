@@ -7,69 +7,47 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 public class CombatLogger implements Listener {
+    public static boolean isInCombat = false;
     @EventHandler
-    // Get if a player has taken damage from another player
     public void onPlayerDamage(org.bukkit.event.entity.EntityDamageByEntityEvent event) {
-        // If the entity that took damage is a player
-        if (event.getEntity() instanceof Player) {
-            // Get the player that took damage
+        // When a player is damaged by another player set the player to be in combat for 10 seconds
+        // If the player is already in combat and is damaged by another player reset the timer to 10 seconds again
+        // Send a message to both players that they are in combat and cannot log out for 10 seconds
+        // After 10 seconds set the player to not be in combat and send a message to the player & damager that they are no longer in combat
+        if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
             Player player = (Player) event.getEntity();
-            // If the entity that damaged the player is a player
-            if (event.getDamager() instanceof Player) {
-                // Get the player that damaged the player
-                Player damager = (Player) event.getDamager();
-                // message both players that they are in combat
-                player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat do not log out!");
-                damager.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.RESET + ChatColor.WHITE + "You are now in combat do not log out!");
-                // For the next 10 seconds if either player leaves the server Kill them
-                // Check if the player or damager has left the server
-                Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
-                    @Override
-                    public void run() {
-                        // If the player has left the server kill them
-                        if (!player.isOnline()) {
-                            // When the player next joins the server kill them
-                            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
-                                @Override
-                                public void run() {
-                                    // If the player has joined the server kill them
-                                    if (player.isOnline()) {
-                                        player.setHealth(0);
-                                    }
-                                }
-                            }, 1);
-                        }
-                        // If the damager has left the server kill them
-                        if (!damager.isOnline()) {
-                            // Kill the damager when they next join the server
-                            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
-                                @Override
-                                public void run() {
-                                    // If the damager has joined the server kill them
-                                    if (damager.isOnline()) {
-                                        damager.setHealth(0);
-                                    }
-                                }
-                            }, 1);
-                        }
-                    }
-                }, 200);
-                // After 10 seconds if the player or damager has not left the server remove the combat tag
-                Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
-                    @Override
-                    public void run() {
-                        // If the player is still online remove the combat tag
-                        if (player.isOnline()) {
-                            player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.GREEN + "" + ChatColor.BOLD + "You are no longer in combat!");
-                        }
-                        // If the damager is still online remove the combat tag
-                        if (damager.isOnline()) {
-                            damager.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Combat] " + ChatColor.GREEN + "" + ChatColor.BOLD + "You are no longer in combat!");
-                        }
-                    }
-                }, 400);
+            Player damager = (Player) event.getDamager();
+            isInCombat = true;
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
+                @Override
+                public void run() {
+                    isInCombat = false;
+                    player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "[⚔] " + ChatColor.RESET + ChatColor.RED + "You are no longer in combat");
+                    damager.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "[⚔] " + ChatColor.RESET + ChatColor.RED + "You are no longer in combat");
 
-            }
+
+                }
+            }, 200L);
+            player.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[⚔] " + ChatColor.RESET + ChatColor.RED + "You are now in combat");
+            damager.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[⚔] " + ChatColor.RESET + ChatColor.RED + "You are now in combat");
+        }
+
+
+    }
+    // Once the player is in combat dont allow them to open any inventories or send any commands to the server
+    // If the player is in combat and tries to open an inventory or send a command to the server send a message to the player saying they are in combat and cannot do that
+    @EventHandler
+    public void onPlayerInventoryClick(org.bukkit.event.inventory.InventoryClickEvent event) {
+        if (isInCombat) {
+            event.setCancelled(true);
+            event.getWhoClicked().sendMessage(ChatColor.RED + "You are in combat and cannot open inventories");
+        }
+    }
+    @EventHandler
+    public void onPlayerCommandPreprocess(org.bukkit.event.player.PlayerCommandPreprocessEvent event) {
+        if (isInCombat) {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage(ChatColor.RED + "You are in combat and cannot send commands");
         }
     }
 }
