@@ -18,12 +18,14 @@ public class HelpGUI implements CommandExecutor {
             // Set the items in the inventory to a Honey Bottle and set the lore to display some information
             ItemStack honeyBottle = new ItemStack(org.bukkit.Material.HONEY_BOTTLE);
             org.bukkit.inventory.meta.ItemMeta honeyBottleMeta = honeyBottle.getItemMeta();
-            honeyBottleMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Server Information");
-            honeyBottleMeta.setLore(java.util.Arrays.asList(ChatColor.GRAY + "PLACEHOLDER TEXT", ChatColor.GRAY + "PLACEHOLDER TEXT PLACEHOLDER TEXT"));
+            honeyBottleMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Help Menu");
+            // Set the lore of the honey to be a "Click here if you have any questions about the server"
+            honeyBottleMeta.setLore(java.util.Arrays.asList(ChatColor.GOLD + "Click here if you have any questions about the server"));
+
             honeyBottle.setItemMeta(honeyBottleMeta);
+
             // Set the item in the inventory to the honey bottle in the middle of the inventory
             helpGUI.setItem(4, honeyBottle);
-
 
             player.openInventory(helpGUI);
         }
