@@ -25,10 +25,16 @@ public class CommandRtp implements CommandExecutor {
                 if (player.getWorld().getName().equals("LifeSteal")) {
                     player.teleport(randomLocation);
                 } else {
-                    // Send them a message saying "Looks like you are not in the world "LifeSteal" so we have teleported you to the correct world" please execute the command again
-                    player.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[Meadow] " + ChatColor.RESET + ChatColor.RED + "Looks like you are not in the world " + ChatColor.GOLD + "LifeSteal" + ChatColor.RED + " so we have teleported you to the correct world, please execute the command again");
-                    //player.teleport(Bukkit.getWorld("LifeSteal").getSpawnLocation(randomLocation));
                     player.teleport(Bukkit.getWorld("LifeSteal").getSpawnLocation());
+                    // then wait 10 seconds to detect if the player is in the correct world and then teleport them to the random location
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("LifeSteal"), new Runnable() {
+                        @Override
+                        public void run() {
+                            if (player.getWorld().getName().equals("LifeSteal")) {
+                                player.teleport(randomLocation);
+                            }
+                        }
+                    }, 100L);
 
                 }
 

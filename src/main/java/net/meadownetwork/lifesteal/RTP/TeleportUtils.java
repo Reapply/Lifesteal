@@ -1,6 +1,7 @@
 package net.meadownetwork.lifesteal.RTP;
 
 import net.meadownetwork.lifesteal.main;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -44,8 +45,8 @@ public class TeleportUtils {
             z = random.nextInt(25000);
             y = 150;
         }
-
-        Location randomLocation = new Location(player.getWorld(), x, y, z);
+        // make this world use the lifesleal world "//Location randomLocation = new Location(player.getWorld(""), x, y, z);"
+        Location randomLocation = new Location(player.getServer().getWorld("LifeSteal"), x, y, z);
         y = randomLocation.getWorld().getHighestBlockYAt(randomLocation);
         randomLocation.setY(y);
 
@@ -68,10 +69,13 @@ public class TeleportUtils {
         int x = location.getBlockX();
         int y = location.getBlockY();
         int z = location.getBlockZ();
-        //Get instances of the blocks around where the player would spawn
-        Block block = location.getWorld().getBlockAt(x, y, z);
-        Block below = location.getWorld().getBlockAt(x, y - 1, z);
-        Block above = location.getWorld().getBlockAt(x, y + 1, z);
+        //Get instances of the blocks around where the player would spawn (MAKE THESE ALL THE LIFESTEAL WORLD ONLY)
+        //Block block1 = location.getWorld(lifesteal).getBlockAt(x, y, z);
+        //        Block block2 = location.getWorld(lifesteal).getBlockAt(x, y + 1, z);
+        //        Block block3 = location.getWorld().getBlockAt(x, y + 2, z)
+        Block block = Bukkit.getWorld("LifeSteal").getBlockAt(x, y, z);
+        Block below = Bukkit.getWorld("LifeSteal").getBlockAt(x, y - 1, z);
+        Block above = Bukkit.getWorld("LifeSteal").getBlockAt(x, y + 1, z);
 
         //Check to see if the surroundings are safe or not
         return !(bad_blocks.contains(below.getType())) || (block.getType().isSolid()) || (above.getType().isSolid());
@@ -79,7 +83,7 @@ public class TeleportUtils {
 
     // Only teleport the player to the world "LifeSteal" if they are in the world "world"
     public static void teleportPlayer(Player player) {
-        if (player.getWorld().getName().equalsIgnoreCase("world")) {
+        if (player.getWorld().getName().equalsIgnoreCase("LifeSteal")) {
             player.teleport(findSafeLocation(player));
         }
     }
