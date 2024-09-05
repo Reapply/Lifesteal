@@ -51,7 +51,8 @@ public class CommandReport implements CommandExecutor {
 
                     Bukkit.broadcast(ChatColor.RED + "" + ChatColor.BOLD + "Report [Meadow]: " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " has reported " + ChatColor.RED + target.getName() + ChatColor.GRAY + " for " + ChatColor.GOLD + "'" + message + "'", "report.see");
 
-                    DiscordWebhook webhook = new DiscordWebhook("https://discord.com/api/webhooks/989772109989441537/u82J93Bw3raCjSbsCHLZDcznyiebPLaMbeyzxV8M4may-R1YX9VFhKfI15r1SywoZa8V");
+                    // This dosent even work so dont try it :PPPPP
+                    DiscordWebhook webhook = new DiscordWebhook("https://discord.com/api/webhooks/989772109989441537/u82J93Bw3raCjSPLaMbeyzxV8M4may-R1YX9VFhKfI15r1SywoZa8V");
                     webhook.setAvatarUrl("https://i.imgur.com/oaJxP4v.gif");
                     webhook.setUsername("Meadow Reports");
                     webhook.addEmbed(new DiscordWebhook.EmbedObject()
