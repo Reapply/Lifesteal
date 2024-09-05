@@ -1,4 +1,4 @@
-![Lifesteal Logo](lifesteal-logo.png)
+This was orginaly for my server but i got bored so stop THIS WILL NOT BE UPDATED
 
 # Lifesteal Plugin 🩸
 
